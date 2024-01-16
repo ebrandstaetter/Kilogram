@@ -5,7 +5,18 @@ import express from 'express';
 const app = express();
 const port = 3000;
 
-app.post("addPost", (req,res)=>{
+app.use(express.static(__dirname + '/../public'));
+
+app.use(express.json())
+
+app.listen(port, ()=>{
+    console.log("/n");
+    console.log('*********** Server started **********')
+    console.log(`Available at http://localhost:${port}`)
+    console.log(`*************************************`)
+})
+
+app.post("/addPost", (req,res)=>{
     let newPost = req.body;
     console.log(newPost);
 
@@ -23,9 +34,10 @@ app.post("addPost", (req,res)=>{
     })
 })
 
-app.get("getAllPosts",(req,res) =>{
+app.get("/getAllPosts",(req,res) =>{
     fs.readFile(DATAPATH, 'utf-8', (err,data)=>{
         if(err) throw err;
         return data;
     })
 })
+
