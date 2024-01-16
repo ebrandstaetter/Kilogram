@@ -5,7 +5,7 @@ function generateAllRecepies() {
     .then(response => response.json())
     .then(recepies => {
         console.log(recepies);
-        document.querySelector(".postCard").innerHTML = generatePostsHtml(recepies);
+        document.querySelector(".feed").innerHTML = generatePostsHtml(recepies);
     })
     .catch(err => console.log(err));
 }
@@ -26,7 +26,7 @@ function generatePostsHtml(recepies) {
                 ingredientsHTML += ` | `;
             }
         }
-        let recepieHTML = `
+        let recepieHTML = `<div class="postCard">
             <div class="postImage"></div>
             <div class="postContent">
                 <h1 class="postTitle">${recepie.title}</h1>
@@ -41,6 +41,7 @@ function generatePostsHtml(recepies) {
                     <img class="postUserIcon" src="../Kilogram/Assets/Images/default_profile_icon.png">
                     <p class="postUserName">${recepie.userName}</p>
                 </div>
+            </div>
             </div>
         `;
         console.log(recepieHTML);
@@ -59,7 +60,6 @@ function addPost() {
         "tags": document.querySelector("#tags").value.split(","),
         "description": document.querySelector("#description").value,
         "preparation": document.querySelector("#preparation").value,
-        "userName": document.querySelector("#userName").value
     }
     console.log(recepie);
 
