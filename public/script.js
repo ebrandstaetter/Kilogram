@@ -1,8 +1,4 @@
 generateAllRecepies();
-
-function getRecepies() {
-}
-
 function generateAllRecepies() {
     let recepiesHTML = "";
 
