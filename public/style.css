@@ -1,17 +1,138 @@
 :root {
     --text: #002335;
     --background: #fff1e6;
+    --background2: #ffebdc;
     --primary: #60A2AA;
     --secondary: #235067;
     --accent: #E6FCFF;
-    }
+    --shadow: rgba(0, 0, 0, 0.15);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    color: var(--text);
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+}
+
+.navBar {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: ; */
+    align-items: center;
+    width: 10em;
+    height: 100%;
+    padding: 1vh 0;
+    background-color: var(--background2);
+}
+
+.navBarLogo {
+    width: 5em;
+    margin-bottom: 5em;
+}
+
+.navBarIcon {
+    width: 3em;
+    margin-bottom: 3em;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+}
+
+.feed {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 3em 0;
+}
+
+.postCard {
+    display: flex;
+    flex-direction: row;
+    height: 35em;
+    width: 50em;
+    background-color: var(--primary);
+    border-radius: 2em;
+}
+
+.postImage {
+    width: 50%;
+    height: 100%;
+    background-image: url(../data/images/1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 2em;
+}
+
+.postContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* to be fixed */
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+.postTitle {
     
-    body {
-        margin: 0;
-        padding: 0;
-        background-color: var(--background);
-    }
+}
+
+.postRating {
     
-    h1, h2, h3 {
-        color: var(--text);
-    }
+}
+
+.postDescription {
+    
+}
+
+.postIngredients {
+    
+}
+
+.postPreparation {
+    
+}
+
+.postFooter {
+    background-color: var(--shadow);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.postTags {
+    
+}
+
+.postDate {
+    
+}
+
+.postUserIcon {
+    width:  3em;
+    height: 3em;
+}
+
+.postUserName {
+    
+}
