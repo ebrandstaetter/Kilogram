@@ -37,7 +37,7 @@ app.post("/addPost", (req,res)=>{
 app.get("/getAllPosts",(req,res) =>{
     fs.readFile(DATAPATH, 'utf-8', (err,data)=>{
         if(err) throw err;
-        return data;
+        res.send(data);
     })
 })
 
