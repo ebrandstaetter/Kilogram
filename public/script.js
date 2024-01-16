@@ -50,7 +50,35 @@ function generatePostsHtml(recepies) {
     return recepiesHTML;
 }
 
+function addPost() {
+    let recepie = {
+        "title": document.querySelector("#title").value,
+        "imgLink": document.querySelector("#imgLink").value,
+        "date": document.querySelector("#date").value,
+        "ingredients": document.querySelector("#ingredients").value.split(","),
+        "tags": document.querySelector("#tags").value.split(","),
+        "description": document.querySelector("#description").value,
+        "preparation": document.querySelector("#preparation").value,
+        "userName": document.querySelector("#userName").value
+    }
+    console.log(recepie);
 
+    fetch('http://localhost:3000/addPost', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(recepie)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        generateAllRecepies();
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
 
 
 // HTML FORMAT OF RECEPIE
