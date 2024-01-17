@@ -1,4 +1,5 @@
 node_modules
+*.Identifier
 .DS_Store
 ./dist
 .idea
