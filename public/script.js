@@ -31,7 +31,7 @@ function generatePostsHtml(recipes) {
             <div class="postImage" style="background-image: url(./img/data/${recipe.imgLink}.jpg);"></div>
             <div class="postContent">
                 <h1 class="postTitle">${recipe.title}</h1>
-                <div id="interaction-heading">
+                <div class="interaction-heading">
                 <div class="postRating">
                     <img src="img/CheffsHatGood.png">
                     <img src="img/CheffsHatGood.png">
