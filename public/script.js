@@ -55,7 +55,7 @@ function addPost() {
     let recepie = {
         "title": document.querySelector("#title").value,
         "imgLink": document.querySelector("#imgLink").value,
-        "date": document.querySelector("#date").value,
+        "date": new Date().toISOString().slice(0, 10),
         "ingredients": document.querySelector("#ingredients").value.split(","),
         "tags": document.querySelector("#tags").value.split(","),
         "description": document.querySelector("#description").value,
