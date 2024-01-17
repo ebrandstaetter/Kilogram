@@ -28,7 +28,7 @@ function generatePostsHtml(recipes) {
         } //TODO: Add rating mechanic
           //TODO: Add image upload instead of URL input
         let recipeHTML = `<div class="postCard">
-            <div class="postImage" style="background-image: url(../data/images/${recipe.imgLink}.jpg);"></div>
+            <div class="postImage" style="background-image: url(./img/data/${recipe.imgLink}.jpg);"></div>
             <div class="postContent">
                 <h1 class="postTitle">${recipe.title}</h1>
                 <div id="interaction-heading">
