@@ -8,11 +8,14 @@
     --shadow: rgba(0, 0, 0, 0.15);
 }
 
+* {
+    padding: 0;
+    margin: 0;
+}
+
 body {
     width:100vw;
     height:100vh;
-    margin: 0;
-    padding: 0;
     background-color: var(--background);
     overflow-x: hidden;
 }
@@ -25,6 +28,11 @@ h1, h2, h3 {
     width: 100vw;
     height:100vh;
 }
+
+
+/*
+* Nav Bar
+*/
 
 .navBar {
     position: fixed;
@@ -40,13 +48,15 @@ h1, h2, h3 {
 }
 
 .navBarLogo {
-    width: 5em;
-    margin-bottom: 5em;
+    width: 3.5em;
+    margin: 2em 0 6em 0;
+    cursor: pointer;
 }
 
 .navBarIcon {
-    width: 3em;
+    width: 2em;
     margin-bottom: 3em;
+    cursor: pointer;
 }
 
 .main {
