@@ -114,7 +114,8 @@ h1, h2, h3 {
     flex-direction: column;
     justify-content: space-between; /* to be fixed */
     align-items: center;
-    width: 50%;
+    width: 45%;
+    margin-left: 2.5%;
     height: 100%;
 }
 
@@ -125,7 +126,7 @@ h1, h2, h3 {
 .interaction-heading {
     display: flex;
     justify-content: space-evenly;
-    width: 100%;
+    width: 90%;
     height: 5%;
 }
 
