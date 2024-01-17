@@ -1,36 +1,36 @@
-generateAllRecepies();
-function generateAllRecepies() {
+generateAllrecipes();
+function generateAllrecipes() {
 
     fetch('http://localhost:3000/getAllPosts')
     .then(response => response.json())
-    .then(recepies => {
-        console.log(recepies);
-        document.querySelector(".feed").innerHTML = generatePostsHtml(recepies);
+    .then(recipes => {
+        console.log(recipes);
+        document.querySelector(".feed").innerHTML = generatePostsHtml(recipes);
     })
     .catch(err => console.log(err));
 }
 
-function generatePostsHtml(recepies) {
-    let recepiesHTML = "";
+function generatePostsHtml(recipes) {
+    let recipesHTML = "";
 
-    for (let i = 0; i < recepies.posts.length; i++) {
-        let recepie = recepies.posts[i];
+    for (let i = 0; i < recipes.posts.length; i++) {
+        let recipe = recipes.posts[i];
         let tagsHTML = "";
-        for (let j = 0; j < recepie.tags.length; j++) {
-            tagsHTML += `#${recepie.tags[j]} `;
+        for (let j = 0; j < recipe.tags.length; j++) {
+            tagsHTML += `#${recipe.tags[j]} `;
         }
         let ingredientsHTML = "";
-        for (let j = 0; j < recepie.ingredients.length; j++) {
-            ingredientsHTML += `${recepie.ingredients[j]}`;
-            if (j < recepie.ingredients.length - 1) {
+        for (let j = 0; j < recipe.ingredients.length; j++) {
+            ingredientsHTML += `${recipe.ingredients[j]}`;
+            if (j < recipe.ingredients.length - 1) {
                 ingredientsHTML += ` | `;
             }
         } //TODO: Add rating mechanic
           //TODO: Add image upload instead of URL input
-        let recepieHTML = `<div class="postCard">
-            <div class="postImage" style="background-image: url(../data/images/${recepie.imgLink}.jpg);"></div>
+        let recipeHTML = `<div class="postCard">
+            <div class="postImage" style="background-image: url(../data/images/${recipe.imgLink}.jpg);"></div>
             <div class="postContent">
-                <h1 class="postTitle">${recepie.title}</h1>
+                <h1 class="postTitle">${recipe.title}</h1>
                 <div class="postRating">
                     <img src="img/CheffsHatGood.png">
                     <img src="img/CheffsHatGood.png">
@@ -38,28 +38,28 @@ function generatePostsHtml(recepies) {
                     <img src="img/CheffsHatGood.png">
                     <img src="img/CheffsHatGood.png">
                 </div>
-                <p class="postDescription">${recepie.description}</p>
+                <p class="postDescription">${recipe.description}</p>
                 <h2>Ingredients:</h2>
                 <p class="postIngredients">${ingredientsHTML}</p>
-                <p class="postPreparation">${recepie.preparation}</p>
+                <p class="postPreparation">${recipe.preparation}</p>
                 <div class="postFooter">
                     <p class="postTags">${tagsHTML}</p>
-                    <p class="postDate">Posted on: ${recepie.date}</p>
+                    <p class="postDate">Posted on: ${recipe.date}</p>
                     <img class="postUserIcon" src="../Kilogram/Assets/Images/default_profile_icon.png">
-                    <p class="postUserName">${recepie.userName}</p>
+                    <p class="postUserName">${recipe.userName}</p>
                 </div>
             </div>
             </div>
         `;
-        console.log(recepieHTML);
-        recepiesHTML += recepieHTML;
+        console.log(recipeHTML);
+        recipesHTML += recipeHTML;
     }
 
-    return recepiesHTML;
+    return recipesHTML;
 }
 
 function addPost() {
-    let recepie = {
+    let recipe = {
         "title": document.querySelector("#title").value,
         "imgLink": document.querySelector("#imgLink").value,
         "date": new Date().toISOString().slice(0, 10),
@@ -68,19 +68,19 @@ function addPost() {
         "description": document.querySelector("#description").value,
         "preparation": document.querySelector("#preparation").value,
     }
-    console.log(recepie);
+    console.log(recipe);
 
     fetch('http://localhost:3000/addPost', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(recepie)
+        body: JSON.stringify(recipe)
     })
     .then(response => response.json())
     .then(data => {
         console.log('Success:', data);
-        generateAllRecepies();
+        generateAllrecipes();
     })
     .catch((error) => {
         console.error('Error:', error);
@@ -88,7 +88,7 @@ function addPost() {
 }
 
 
-// HTML FORMAT OF RECEPIE
+// HTML FORMAT OF recipe
 //                     <div class="postImage"></div>
 //                     <div class="postContent">
 //                         <h1 class="postTitle">Tasty Tomato Pasta</h1>
@@ -112,7 +112,7 @@ function addPost() {
 //                     </div>
 
 
-// JSON FORMAT OF RECEPIE
+// JSON FORMAT OF recipe
 // {
 //     "posts" : [
 //         {

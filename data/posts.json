@@ -17,6 +17,19 @@
       ],
       "description": "Easy to make, delicious noodles.",
       "preparation": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae facilis illo placeat voluptatum illum? Maiores assumenda quia reprehenderit iusto enim ratione animi, laudantium, cum officiis laboriosam debitis illo, nemo ipsum!"
+    },
+    {
+      "title": "pizza",
+      "imgLink": "",
+      "date": "2024-01-17",
+      "ingredients": [
+        "four"
+      ],
+      "tags": [
+        "pizza"
+      ],
+      "description": "pizza",
+      "preparation": "baum"
     }
   ]
 }
