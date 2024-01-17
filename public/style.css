@@ -20,10 +20,7 @@ h1, h2, h3 {
 }
 
 .content {
-    display: flex;
-    flex-direction: row;
     width: 100vw;
-    height: 100vh;
 }
 
 .navBar {
@@ -55,10 +52,10 @@ h1, h2, h3 {
 
 .feed {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     width: 100%;
-    height: 100%;
     padding: 3em 0;
 }
 
@@ -69,6 +66,7 @@ h1, h2, h3 {
     width: 50em;
     background-color: var(--primary);
     border-radius: 2em;
+    margin: 5vw;
 }
 
 .postImage {
@@ -116,8 +114,6 @@ h1, h2, h3 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
-
 }
 
 .postTags {
