@@ -25,12 +25,18 @@ function generatePostsHtml(recepies) {
             if (j < recepie.ingredients.length - 1) {
                 ingredientsHTML += ` | `;
             }
-        }
+        } //TODO: Add rating mechanic
         let recepieHTML = `<div class="postCard">
             <div class="postImage"></div>
             <div class="postContent">
                 <h1 class="postTitle">${recepie.title}</h1>
-                <div class="postRating"></div>
+                <div class="postRating">
+                    <img src="img/CheffsHatGood.png">
+                    <img src="img/CheffsHatGood.png">
+                    <img src="img/CheffsHatGood.png">
+                    <img src="img/CheffsHatGood.png">
+                    <img src="img/CheffsHatGood.png">
+                </div>
                 <p class="postDescription">${recepie.description}</p>
                 <h2>Ingredients:</h2>
                 <p class="postIngredients">${ingredientsHTML}</p>
@@ -85,7 +91,13 @@ function addPost() {
 //                     <div class="postImage"></div>
 //                     <div class="postContent">
 //                         <h1 class="postTitle">Tasty Tomato Pasta</h1>
-//                         <div class="postRating"></div>
+//                         <div class="postRating">
+//                             <img src="img/CheffsHatGood.png">
+//                             <img src="img/CheffsHatGood.png">
+//                             <img src="img/CheffsHatGood.png">
+//                             <img src="img/CheffsHatGood.png">
+//                             <img src="img/CheffsHatGood.png">
+//                         </div>
 //                         <p class="postDescription">Easy to make, delicious noodles.</p>
 //                         <h2>Ingredients:</h2>
 //                         <p class="postIngredients">Noodles | Tomatosauce | Water</p>

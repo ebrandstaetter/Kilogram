@@ -96,7 +96,11 @@ h1, h2, h3 {
 }
 
 .postRating {
-    
+    height: 5%;
+}
+
+.postRating img {
+    height: 100%;
 }
 
 .postDescription {
