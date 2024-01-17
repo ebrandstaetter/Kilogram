@@ -47,10 +47,9 @@
             <input type="text" id="title">
         </div>
         <div>
-            <label for="imgLink">Image Link:</label>
-            <input type="text" id="imgLink">
+            <label for="imgLink" style="cursor: pointer;">Upload Image</label>
+            <input type="file" accept="image/jpg" name="image" id="imgLink" onchange="loadFile(event)"> <!-- TODO: only allow to add jpg -->
         </div>
-        
         <div>
             <label for="ingredients">Ingredients:</label>
             <input type="text" id="ingredients">

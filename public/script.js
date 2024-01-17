@@ -27,8 +27,16 @@ function generatePostsHtml(recipes) {
             }
         } //TODO: Add rating mechanic
           //TODO: Add image upload instead of URL input
+
+          //TODO: image upload function
+        /*var loadFile = function(event) {
+            var image = document.getElementById('postImage'+recipe.id);
+            image.style.backgroundImage = url();//event.target.files[0]; //image.src = URL.createObjectURL(event.target.files[0]);
+        };*/
+
         let recipeHTML = `<div class="postCard">
-            <div class="postImage" style="background-image: url(./img/data/${recipe.imgLink}.jpg);"></div>
+            <div class="postImage" id="postImage${recipe.id}" style="background-image: url(./img/data/${recipe.imgLink}.jpg);"></div>
+
             <div class="postContent">
                 <h1 class="postTitle">${recipe.title}</h1>
                 <div class="interaction-heading">
