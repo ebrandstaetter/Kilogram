@@ -106,7 +106,7 @@ h1, h2, h3 {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    border-radius: 2em;
+    border-radius: 2em 0 0 2em;
 }
 
 .postContent {
@@ -122,10 +122,15 @@ h1, h2, h3 {
     
 }
 
-
+.interaction-heading {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 5%;
+}
 
 .postRating {
-    height: 5%;
+    height: 100%;
 }
 
 .postRating img {
