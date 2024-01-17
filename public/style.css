@@ -9,6 +9,8 @@
 }
 
 body {
+    width:100vw;
+    height:100vh;
     margin: 0;
     padding: 0;
     background-color: var(--background);
@@ -21,6 +23,7 @@ h1, h2, h3 {
 
 .content {
     width: 100vw;
+    height:100vh;
 }
 
 .navBar {
@@ -29,9 +32,10 @@ h1, h2, h3 {
     flex-direction: column;
     /* justify-content: ; */
     align-items: center;
-    width: 10em;
+    width: 10vw;
     height: 100%;
     padding: 1vh 0;
+    border-right: solid 2px rgba(0, 0, 0, 0.8);
     background-color: var(--background2);
 }
 
@@ -46,27 +50,26 @@ h1, h2, h3 {
 }
 
 .main {
-    width: 100%;
-    height: 100%;
+    width: 90vw;
+    height: 100vh;
+    margin-left:10vw;
 }
 
 .feed {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
     width: 100%;
-    padding: 3em 0;
+    height: 100%;
+    margin-left:25vw;
 }
 
 .postCard {
     display: flex;
-    flex-direction: row;
     height: 35em;
     width: 50em;
     background-color: var(--primary);
     border-radius: 2em;
-    margin: 5vw;
+    margin-top:5vh; 
 }
 
 .postImage {

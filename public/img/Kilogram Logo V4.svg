@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2"
+   width="220.66667"
+   height="265.33334"
+   viewBox="0 0 220.66667 265.33334"
+   sodipodi:docname="Kilogram Logo V3.ai"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath16">
+      <path
+         d="M 0,199 H 165.5 V 0 H 0 Z"
+         id="path14" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <g
+     id="g8"
+     inkscape:groupmode="layer"
+     inkscape:label="Kilogram Logo V3"
+     transform="matrix(1.3333333,0,0,-1.3333333,0,265.33333)">
+    <g
+       id="g10">
+      <g
+         id="g12"
+         clip-path="url(#clipPath16)">
+        <g
+           id="g18"
+           transform="translate(119.9668,150)">
+          <path
+             d="m 0,0 h -73.723 c -5.5,0 -11.109,-4.361 -12.464,-9.692 l -33.21,-130.616 c -1.355,-5.331 2.036,-9.692 7.536,-9.692 h 150 c 5.5,0 8.891,4.361 7.536,9.692 L 12.464,-9.692 C 11.109,-4.361 5.5,0 0,0 m 0,-8 c 1.837,0 4.258,-1.883 4.711,-3.663 L 37.85,-142 h -149.423 l 33.139,130.337 c 0.453,1.78 2.875,3.663 4.711,3.663 z"
+             style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path20" />
+        </g>
+        <g
+           id="g22"
+           transform="translate(82.6055,154.5)">
+          <path
+             d="M 0,0 C -6.904,0 -12.5,5.596 -12.5,12.5 -12.5,19.404 -6.904,25 0,25 6.904,25 12.5,19.404 12.5,12.5 12.5,5.596 6.904,0 0,0 Z M 19.279,-7.09 C 24.646,-2.072 28,5.072 28,13 28,28.188 15.688,40.5 0.5,40.5 -14.688,40.5 -27,28.188 -27,13 c 0,-7.968 3.389,-15.145 8.804,-20.168"
+             style="fill:none;stroke:#000000;stroke-width:7;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             id="path24" />
+        </g>
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       transform="matrix(1,0,0,-1,27.6318,25.9297)"
+       style="font-variant:normal;font-weight:900;font-stretch:normal;font-size:75px;font-family:'Arial Black';-inkscape-font-specification:Arial-Black;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text28"><tspan
+         x="0 62.474998"
+         y="0"
+         sodipodi:role="line"
+         id="tspan26">Kg</tspan></text>
+  </g>
+</svg>
