@@ -58,7 +58,7 @@ h1, h2, h3 {
     flex-direction: column;
     /* justify-content: ; */
     align-items: center;
-    width: 10vw;
+    width: 5.5em;
     height: 100%;
     padding: 1vh 0;
     border-right: solid 2px rgba(0, 0, 0, 0.8);
@@ -66,7 +66,7 @@ h1, h2, h3 {
 }
 
 .navBarLogo {
-    width: 3.5em;
+    width: 60%;
     margin: 2em 0 6em 0;
     cursor: pointer;
 }
@@ -114,9 +114,9 @@ h1, h2, h3 {
     flex-direction: column;
     justify-content: space-between; /* to be fixed */
     align-items: center;
-    width: 45%;
-    margin-left: 2.5%;
-    height: 100%;
+    width: 42%;
+    height: 93%;
+    padding: 2.5% 2.5%;
 }
 
 .postTitle {
@@ -126,8 +126,8 @@ h1, h2, h3 {
 .interaction-heading {
     display: flex;
     justify-content: space-evenly;
-    width: 90%;
-    height: 5%;
+    width: 95%;
+    height: 6%;
 }
 
 .postRating {
@@ -136,6 +136,10 @@ h1, h2, h3 {
 
 .postRating img {
     height: 100%;
+}
+
+.postBookmark {
+    cursor: pointer;
 }
 
 .postDescription {
@@ -166,8 +170,8 @@ h1, h2, h3 {
 }
 
 .postUserIcon {
-    width:  3em;
-    height: 3em;
+    height: 2em;
+    width: 2em;
 }
 
 .postUserName {

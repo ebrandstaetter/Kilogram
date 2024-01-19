@@ -47,7 +47,7 @@ function generatePostsHtml(recipes) {
                     <img src="img/CheffsHatGood.png">
                     <img src="img/CheffsHatGood.png">
                 </div>
-                <img src="img/icons/bookmark.svg">
+                    <img class="postBookmark" id="false" src="img/icons/bookmark.svg" onclick="changePostSavestate(this)">
                 </div>
                 <p class="postDescription">${recipe.description}</p>
                 <h2>Ingredients:</h2>
@@ -56,8 +56,7 @@ function generatePostsHtml(recipes) {
                 <div class="postFooter">
                     <p class="postTags">${tagsHTML}</p>
                     <p class="postDate">Posted on: ${recipe.date}</p>
-                    <img class="postUserIcon" src="../Kilogram/Assets/Images/default_profile_icon.png">
-                    <p class="postUserName">${recipe.userName}</p>
+                    <img class="postUserIcon" src="./img/default_profile_icon.png">
                 </div>
             </div>
             </div>
@@ -96,6 +95,16 @@ function addPost() {
     .catch((error) => {
         console.error('Error:', error);
     });
+}
+
+function changePostSavestate(bookmark) {
+    if (bookmark.id === 'false') {
+        bookmark.src = "img/icons/bookmark-saved.svg"
+        bookmark.id = 'true'
+    } else if (bookmark.id === 'true') {
+        bookmark.src = "img/icons/bookmark.svg"
+        bookmark.id = 'false'
+    }
 }
 
 
