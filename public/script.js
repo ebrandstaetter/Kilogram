@@ -99,7 +99,8 @@ function addPost() {
 
 function changePostSavestate(bookmark) {
     if (bookmark.id === 'false') {
-        bookmark.src = "img/icons/bookmark-saved.svg"
+        bookmark.src = "img/i" +
+            "cons/bookmark-saved.svg"
         bookmark.id = 'true'
     } else if (bookmark.id === 'true') {
         bookmark.src = "img/icons/bookmark.svg"
