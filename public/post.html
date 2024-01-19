@@ -2,51 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="./script.js" defer></script>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="style.css" rel="stylesheet">
+    <script defer src="./script.js"></script>
     <title>Post Recipe</title>
 </head>
 <body>
-    <div class="content">
-        <div class="navBar">
-            <a href="index.html">
-                <img class="navBarLogo" src="./img/Kilogram Logo V4.png">
-            </a>
-            <a href="index.html">
-                <img class="navBarIcon" src="./img/icons/home.svg">
-            </a>
+<div class="content">
+    <div class="navBar">
+        <a class="navBarLogoLink" href="index.html">
+            <img class="navBarLogo" src="./img/Kilogram Logo V4.png">
+        </a>
+        <a class="navBarIconLink">
+            <img class="navBarIcon" src="./img/icons/home.svg">
+        </a>
+        <a class="navBarIconLink">
             <img class="navBarIcon" src="./img/icons/settings.svg">
+        </a>
+        <a class="navBarIconLink" href="post.html">
             <img class="navBarIcon" src="./img/icons/plus.svg">
-        </div>
-
-        <div class="addPostInputs">
-            <div>
-                <label for="title">Title:</label>
-                <input type="text" id="title">
-            </div>
-            <div>
-                <label for="imgLink">Image Link:</label>
-                <input type="text" id="imgLink">
-            </div>
-            <div>
-                <label for="ingredients">Ingredients:</label>
-                <input type="text" id="ingredients">
-            </div>
-            <div>
-                <label for="tags">Tags:</label>
-                <input type="text" id="tags">
-            </div>
-            <div>
-                <label for="description">Description:</label>
-                <input type="text" id="description">
-            </div>
-            <div>
-                <label for="preparation">Preparation:</label>
-                <input type="text" id="preparation">
-            </div>
-            <button onclick="addPost()">submit</button>
-        </div>
+        </a>
     </div>
+
+    <div class="addPostInputs">
+        <div>
+            <label for="title">Title:</label>
+            <input id="title" type="text">
+        </div>
+        <div>
+            <label for="imgLink">Image Link:</label>
+            <input id="imgLink" type="text">
+        </div>
+        <div>
+            <label for="ingredients">Ingredients:</label>
+            <input id="ingredients" type="text">
+        </div>
+        <div>
+            <label for="tags">Tags:</label>
+            <input id="tags" type="text">
+        </div>
+        <div>
+            <label for="description">Description:</label>
+            <input id="description" type="text">
+        </div>
+        <div>
+            <label for="preparation">Preparation:</label>
+            <input id="preparation" type="text">
+        </div>
+        <button onclick="addPost()">submit</button>
+    </div>
+</div>
 </body>
 </html>

@@ -66,13 +66,21 @@ h1, h2, h3 {
 }
 
 .navBarLogo {
+    width: 100%;
+}
+
+.navBarLogoLink {
     width: 60%;
     margin: 2em 0 6em 0;
     cursor: pointer;
 }
 
 .navBarIcon {
-    width: 2em;
+    width: 100%;
+}
+
+.navBarIconLink {
+    width: 40%;
     margin-bottom: 3em;
     cursor: pointer;
 }
@@ -196,7 +204,7 @@ h1, h2, h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 60%;
     background-color: var(--background2);
     padding: 20px;
     border-radius: 10px;
@@ -219,7 +227,7 @@ h1, h2, h3 {
     color: var(--text);
     margin-right: 10px;
     font-weight: bold; /* makes the label text bold */
-    width: 15%;
+    width: 22%;
 }
 
 .addPostInputs input {
