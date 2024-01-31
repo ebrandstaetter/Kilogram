@@ -1,13 +1,14 @@
 generateAllrecipes();
+
 function generateAllrecipes() {
 
     fetch('http://localhost:3000/getAllPosts')
-    .then(response => response.json())
-    .then(recipes => {
-        console.log(recipes);
-        document.querySelector(".feed").innerHTML = generatePostsHtml(recipes);
-    })
-    .catch(err => console.log(err));
+        .then(response => response.json())
+        .then(recipes => {
+            console.log(recipes);
+            document.querySelector(".feed").innerHTML = generatePostsHtml(recipes);
+        })
+        .catch(err => console.log(err));
 }
 
 function generatePostsHtml(recipes) {
@@ -28,7 +29,7 @@ function generatePostsHtml(recipes) {
         } //TODO: Add rating mechanic
           //TODO: Add image upload instead of URL input
 
-          //TODO: image upload function
+        //TODO: image upload function
         /*var loadFile = function(event) {
             var image = document.getElementById('postImage'+recipe.id);
             image.style.backgroundImage = url();//event.target.files[0]; //image.src = URL.createObjectURL(event.target.files[0]);
@@ -47,16 +48,15 @@ function generatePostsHtml(recipes) {
                     <img src="img/CheffsHatGood.png">
                     <img src="img/CheffsHatGood.png">
                 </div>
-                    <img class="postBookmark" id="false" src="img/icons/bookmark.svg" onclick="changePostSavestate(this)">
+                    <img class="postBookmark" id="false" src="img/icons/bookmark.svg" onclick="changePostSavestate(this)" onmouseenter="changePostSavestate(this)" onmouseleave="changePostSavestate(this)">
                 </div>
                 <p class="postDescription">${recipe.description}</p>
                 <h2>Ingredients:</h2>
                 <p class="postIngredients">${ingredientsHTML}</p>
                 <div class="postPreparation"></div>
                 <div class="postFooter">
+                   <p class="postDate">${recipe.date}</p>
                     <p class="postTags">${tagsHTML}</p>
-                   <p class="postDate">Posted on: ${recipe.date}</p>
-                    <img class="postUserIcon" src="./img/default_profile_icon.png">
                 </div>
             </div>
             </div>
@@ -105,26 +105,24 @@ function addPost() {
     console.log(recipe);
 
     fetch('http://localhost:3000/addPost', {
-        method: 'POST',
-        headers: {
+        method: 'POST', headers: {
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(recipe)
+        }, body: JSON.stringify(recipe)
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data);
-        generateAllrecipes();
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            generateAllrecipes();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 }
+
 
 function changePostSavestate(bookmark) {
     if (bookmark.id === 'false') {
-        bookmark.src = "img/i" +
-            "cons/bookmark-saved.svg"
+        bookmark.src = "img/i" + "cons/bookmark-saved.svg"
         bookmark.id = 'true'
     } else if (bookmark.id === 'true') {
         bookmark.src = "img/icons/bookmark.svg"
