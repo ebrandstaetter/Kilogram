@@ -58,6 +58,7 @@ h1, h2, h3 {
     flex-direction: column;
     /* justify-content: ; */
     align-items: center;
+    top: 0;
     width: 5.5em;
     height: 100%;
     padding: 1vh 0;
@@ -141,7 +142,7 @@ h1, h2, h3 {
 }
 
 .postTitle {
-    
+    text-align: center;
 }
 
 .interaction-heading {
@@ -172,14 +173,15 @@ h1, h2, h3 {
 }
 
 .postPreparation {
-    
+    width: 90%;
 }
 
 .postFooter {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 90%;
 }
 
 .postTags {
@@ -187,7 +189,6 @@ h1, h2, h3 {
 }
 
 .postDate {
-    
 }
 
 .postUserIcon {
@@ -222,7 +223,7 @@ h1, h2, h3 {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px var(--shadow);
-    margin: 0 auto; /* centers the form horizontally */
+    margin: 5em auto; /* centers the form horizontally */
     /*margin-top: 10%;*/
 }
 

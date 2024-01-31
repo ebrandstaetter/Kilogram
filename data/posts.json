@@ -2,7 +2,25 @@
   "posts": [
     {
       "id": "1",
-      "title": "Tasty Tomato Pasta",
+      "title": "Tomato Pasta",
+      "imgLink": "1",
+      "date": "2024-01-04",
+      "ingredients": [
+        "Noodles",
+        "Tomatosauce",
+        "Water"
+      ],
+      "tags": [
+        "Easy",
+        "Noodles",
+        "Yummy"
+      ],
+      "description": "Easy to make, delicious noodles.",
+      "preparation": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae facilis illo placeat voluptatum illum? Maiores assumenda quia reprehenderit iusto enim ratione animi, laudantium, cum officiis laboriosam debitis illo, nemo ipsum!"
+    },
+    {
+      "id": "1",
+      "title": "Tomato Pasta",
       "imgLink": "1",
       "date": "2024-01-04",
       "ingredients": [
