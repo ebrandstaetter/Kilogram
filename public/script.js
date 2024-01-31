@@ -115,6 +115,8 @@ function closeDetailView(postCard, recipeId) {
         .then(data => {
             let ingredients = postCard.querySelector(".postIngredients");
             ingredients.innerHTML = generateIngredientsHtmlSmallView(data.ingredients);
+
+            postCard.querySelector(".postIngredients").classList.remove("postPreparationDetailView");
         });
 }
 
