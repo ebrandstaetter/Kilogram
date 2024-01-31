@@ -101,11 +101,18 @@ h1, h2, h3 {
 
 .postCard {
     display: flex;
-    height: 35em;
-    width: 50em;
+    height: 25em;
+    width: 40em;
     background-color: var(--primary);
     border-radius: 2em;
-    margin-top:5vh; 
+    margin-top:5vh;
+    cursor: pointer;
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.detailView {
+    width: 56em;
+    height: 35em;
 }
 
 .postImage {

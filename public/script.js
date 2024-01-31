@@ -34,7 +34,7 @@ function generatePostsHtml(recipes) {
             image.style.backgroundImage = url();//event.target.files[0]; //image.src = URL.createObjectURL(event.target.files[0]);
         };*/
 
-        let recipeHTML = `<div class="postCard">
+        let recipeHTML = `<div class="postCard" onclick="detailView(this, ${recipe.id})">
             <div class="postImage" id="postImage${recipe.id}" style="background-image: url(./img/data/${recipe.imgLink}.jpg);"></div>
 
             <div class="postContent">
@@ -52,10 +52,10 @@ function generatePostsHtml(recipes) {
                 <p class="postDescription">${recipe.description}</p>
                 <h2>Ingredients:</h2>
                 <p class="postIngredients">${ingredientsHTML}</p>
-                <p class="postPreparation">${recipe.preparation}</p>
+                <div class="postPreparation"></div>
                 <div class="postFooter">
                     <p class="postTags">${tagsHTML}</p>
-                    <p class="postDate">Posted on: ${recipe.date}</p>
+                   <p class="postDate">Posted on: ${recipe.date}</p>
                     <img class="postUserIcon" src="./img/default_profile_icon.png">
                 </div>
             </div>
@@ -66,6 +66,30 @@ function generatePostsHtml(recipes) {
     }
 
     return recipesHTML;
+}
+
+function detailView(postCard, recipeId) {
+//<p className="postPreparation">${recipe.preparation}</p>
+    postCard.classList.add("detailView");
+
+    fetch('http://localhost:3000/getPost/' + recipeId)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            postCard.setAttribute('onclick', 'closeDetailView(this, ' + recipeId + ')');
+            let preparation = postCard.querySelector(".postPreparation");
+            preparation.innerHTML += "<h2>How to Cook:</h2>";
+            preparation.innerHTML += '<div>' + data.preparation + '</div>';
+        })
+        .catch(err => console.log(err));
+
+}
+
+function closeDetailView(postCard, recipeId) {
+    console.log('closeDetailView');
+    postCard.classList.remove("detailView")
+    postCard.setAttribute('onclick', 'detailView(this, ' + recipeId + ')');
+    postCard.querySelector(".postPreparation").innerHTML = "";
 }
 
 function addPost() {

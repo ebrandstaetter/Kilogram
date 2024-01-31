@@ -41,3 +41,13 @@ app.get("/getAllPosts",(req,res) =>{
     })
 })
 
+app.get("/getPost/:id",(req,res) =>{
+    let id = parseInt(req.params.id);
+    fs.readFile(DATAPATH, 'utf-8', (err,data)=>{
+        if(err) throw err;
+        let json = JSON.parse(data);
+        let post = json.posts[id - 1];
+        res.send(post);
+    })
+})
+
