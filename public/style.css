@@ -134,6 +134,12 @@ h1, h2, h3 {
     padding: 2.5% 2.5%;
 }
 
+.postPreparationDetailView {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: left;
+}
+
 .postTitle {
     
 }

@@ -19,13 +19,8 @@ function generatePostsHtml(recipes) {
         for (let j = 0; j < recipe.tags.length; j++) {
             tagsHTML += `#${recipe.tags[j]} `;
         }
-        let ingredientsHTML = "";
-        for (let j = 0; j < recipe.ingredients.length; j++) {
-            ingredientsHTML += `${recipe.ingredients[j]}`;
-            if (j < recipe.ingredients.length - 1) {
-                ingredientsHTML += ` | `;
-            }
-        } //TODO: Add rating mechanic
+        let ingredientsHTML = generateIngredientsHtmlSmallView(recipe.ingredients);
+         //TODO: Add rating mechanic
           //TODO: Add image upload instead of URL input
 
           //TODO: image upload function
@@ -68,6 +63,23 @@ function generatePostsHtml(recipes) {
     return recipesHTML;
 }
 
+function generateIngredientsHtmlSmallView(ingredients) {
+    let ingredientsHTML = "";
+    const MAX_INGREDIENTS_LENGTH = 5;
+    for (let j = 0; j < ingredients.length; j++) {
+        if(j < MAX_INGREDIENTS_LENGTH) {
+            ingredientsHTML += `${ingredients[j]}`;
+        } else {
+            ingredientsHTML += `...`;
+            break;
+        }
+        if (j < ingredients.length - 1) {
+            ingredientsHTML += ` | `;
+        }
+    }
+    return ingredientsHTML;
+}
+
 function detailView(postCard, recipeId) {
 //<p className="postPreparation">${recipe.preparation}</p>
     postCard.classList.add("detailView");
@@ -80,6 +92,13 @@ function detailView(postCard, recipeId) {
             let preparation = postCard.querySelector(".postPreparation");
             preparation.innerHTML += "<h2>How to Cook:</h2>";
             preparation.innerHTML += '<div>' + data.preparation + '</div>';
+
+            let ingridients = postCard.querySelector(".postIngredients");
+            ingridients.innerHTML = "";
+            for (let i = 0; i < data.ingredients.length; i++) {
+                ingridients.innerHTML += '<p>- ' + data.ingredients[i] + '</p>';
+            }
+            ingridients.classList.add("postPreparationDetailView");
         })
         .catch(err => console.log(err));
 
@@ -90,6 +109,13 @@ function closeDetailView(postCard, recipeId) {
     postCard.classList.remove("detailView")
     postCard.setAttribute('onclick', 'detailView(this, ' + recipeId + ')');
     postCard.querySelector(".postPreparation").innerHTML = "";
+
+    fetch('http://localhost:3000/getPost/' + recipeId)
+        .then(response => response.json())
+        .then(data => {
+            let ingredients = postCard.querySelector(".postIngredients");
+            ingredients.innerHTML = generateIngredientsHtmlSmallView(data.ingredients);
+        });
 }
 
 function addPost() {
