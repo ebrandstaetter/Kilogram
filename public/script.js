@@ -16,10 +16,8 @@ function generatePostsHtml(recipes) {
 
     for (let i = 0; i < recipes.posts.length; i++) {
         let recipe = recipes.posts[i];
-        let tagsHTML = "";
-        for (let j = 0; j < recipe.tags.length; j++) {
-            tagsHTML += `#${recipe.tags[j]} `;
-        }
+        let tagsHTML = generateTagsHtml(recipe);
+
         let ingredientsHTML = generateIngredientsHtmlSmallView(recipe.ingredients);
          //TODO: Add rating mechanic
           //TODO: Add image upload instead of URL input
@@ -30,11 +28,11 @@ function generatePostsHtml(recipes) {
             image.style.backgroundImage = url();//event.target.files[0]; //image.src = URL.createObjectURL(event.target.files[0]);
         };*/
 
-        let recipeHTML = `<div class="postCard" onclick="detailView(this, ${recipe.id})">
+        let recipeHTML = `<div id="postCard${recipe.id}" class="postCard" onclick="detailView(this, ${recipe.id})">
             <div class="postImage" id="postImage${recipe.id}" style="background-image: url(./img/data/${recipe.imgLink}.jpg);"></div>
 
             <div class="postContent">
-                <h1 class="postTitle">${recipe.title}</h1>
+                <h1 class="postTitle editable">${recipe.title}</h1>
                 <div class="interaction-heading">
                 <div class="postRating">
                     <img src="img/CheffsHatGood.png">
@@ -45,9 +43,9 @@ function generatePostsHtml(recipes) {
                 </div>
                     <img class="postBookmark" id="false" src="img/icons/bookmark.svg" onclick="changePostSavestate(this)" onmouseenter="changePostSavestate(this)" onmouseleave="changePostSavestate(this)">
                 </div>
-                <p class="postDescription">${recipe.description}</p>
+                <p class="postDescription editable">${recipe.description}</p>
                 <h2>Ingredients:</h2>
-                <p class="postIngredients">${ingredientsHTML}</p>
+                <p class="postIngredients editable">${ingredientsHTML}</p>
                 <div class="postPreparation"></div>
                 <div class="postFooter">
                    <p class="postDate">${recipe.date}</p>
@@ -80,6 +78,14 @@ function generateIngredientsHtmlSmallView(ingredients) {
     return ingredientsHTML;
 }
 
+function generateTagsHtml(recipe) {
+    let tagsHTML = "";
+    for (let j = 0; j < recipe.tags.length; j++) {
+        tagsHTML += `#${recipe.tags[j]} `;
+    }
+    return tagsHTML;
+}
+
 function detailView(postCard, recipeId) {
 //<p className="postPreparation">${recipe.preparation}</p>
     postCard.classList.add("detailView");
@@ -92,14 +98,17 @@ function detailView(postCard, recipeId) {
             let preparation = postCard.querySelector(".postPreparation");
             preparation.style.margin = "8%";
             preparation.innerHTML += "<h2>How to Cook:</h2>";
-            preparation.innerHTML += '<div>' + data.preparation + '</div>';
+            preparation.innerHTML += '<div class="editable">' + data.preparation + '</div>';
 
-            let ingridients = postCard.querySelector(".postIngredients");
-            ingridients.innerHTML = "";
+            let ingredients = postCard.querySelector(".postIngredients");
+            ingredients.innerHTML = "";
             for (let i = 0; i < data.ingredients.length; i++) {
-                ingridients.innerHTML += '<p>- ' + data.ingredients[i] + '</p>';
+                ingredients.innerHTML += '<p>- ' + data.ingredients[i] + '</p>';
             }
-            ingridients.classList.add("postPreparationDetailView");
+            ingredients.classList.add("postPreparationDetailView");
+
+            //TODO: use icon instead of button, styling
+            document.querySelector('.postFooter').innerHTML += '<button onclick="editPost(' + data.id + ')">edit Post</button>';
         })
         .catch(err => console.log(err));
 
@@ -113,11 +122,15 @@ function closeDetailView(postCard, recipeId) {
 
     fetch('http://localhost:3000/getPost/' + recipeId)
         .then(response => response.json())
-        .then(data => {
+        .then(recipe => {
             let ingredients = postCard.querySelector(".postIngredients");
-            ingredients.innerHTML = generateIngredientsHtmlSmallView(data.ingredients);
+            ingredients.innerHTML = generateIngredientsHtmlSmallView(recipe.ingredients);
 
             postCard.querySelector(".postIngredients").classList.remove("postPreparationDetailView");
+            document.querySelector('.postFooter').innerHTML = `
+                   <p class="postDate">${recipe.date}</p>
+                    <p class="postTags">${generateTagsHtml(recipe)}</p>
+            `
         });
 }
 
@@ -156,6 +169,17 @@ function changePostSavestate(bookmark) {
     } else if (bookmark.id === 'true') {
         bookmark.src = "img/icons/bookmark.svg"
         bookmark.id = 'false'
+    }
+}
+
+function editPost(postIdToEdit) {
+    let postToEdit = document.getElementById('postCard' + postIdToEdit);
+    let postContent = postToEdit.querySelector('.postContent');
+
+    console.log(postContent.getElementsByClassName('editable'));
+    let editableElements = postContent.getElementsByClassName('editable');
+    for (let i = 0; i < editableElements.length; i++) {
+        editableElements[i].setAttribute('contenteditable', 'true');
     }
 }
 
