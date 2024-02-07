@@ -145,8 +145,13 @@ h1, h2, h3 {
 }
 
 .detailView {
-    width  : 56em;
+    width  : 65em;
     height : 35em;
+}
+
+.detailView .postContent {
+    overflow: scroll;
+    scrollbar-width: none;
 }
 
 .postImage {
@@ -164,7 +169,6 @@ h1, h2, h3 {
     justify-content : space-between; /* to be fixed */
     align-items     : center;
     width           : 42%;
-    height          : 93%;
     padding         : 2.5% 2.5%;
 }
 

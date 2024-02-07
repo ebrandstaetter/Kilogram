@@ -90,6 +90,7 @@ function detailView(postCard, recipeId) {
             console.log(data);
             postCard.setAttribute('onclick', 'closeDetailView(this, ' + recipeId + ')');
             let preparation = postCard.querySelector(".postPreparation");
+            preparation.style.margin = "8%";
             preparation.innerHTML += "<h2>How to Cook:</h2>";
             preparation.innerHTML += '<div>' + data.preparation + '</div>';
 
