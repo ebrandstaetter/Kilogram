@@ -48,8 +48,8 @@ function generatePostsHtml(recipes) {
                 <p class="postIngredients editable">${ingredientsHTML}</p>
                 <div class="postPreparation"></div>
                 <div class="postFooter">
-                   <p class="postDate">${recipe.date}</p>
-                    <p class="postTags">${tagsHTML}</p>
+                   <p class="postDate editable">${recipe.date}</p>
+                    <p class="postTags editable">${tagsHTML}</p>
                 </div>
             </div>
             </div>
@@ -175,11 +175,57 @@ function changePostSavestate(bookmark) {
 function editPost(postIdToEdit) {
     let postToEdit = document.getElementById('postCard' + postIdToEdit);
     let postContent = postToEdit.querySelector('.postContent');
+    let footer = postToEdit.querySelector('.postFooter');
+
+    footer.innerHTML += '<button onclick="saveEdits(' + postToEdit + ')">save Post</button>';
+
+    let editableElements = findAllChildrenWithClass(postContent, 'editable');
+    console.log(editableElements);
+
+    for (let i = 0; i < editableElements.length; i++) {
+        editableElements[i].setAttribute('contenteditable', 'true');
+    }
+}
+function findAllChildrenWithClass(element, className) {
+    let childrenWithClass = [];
+
+    // Überprüfe, ob das aktuelle Element die gesuchte Klasse hat
+    if (element.classList.contains(className)) {
+        childrenWithClass.push(element);
+    }
+
+    // Durchlaufe alle direkten Kinder des aktuellen Elements
+    element.childNodes.forEach(child => {
+        // Überprüfe, ob das Kind ein Elementknoten ist (Knotentyp 1)
+        if (child.nodeType === 1) {
+            // Rekursiver Aufruf für jedes Kind
+            childrenWithClass = childrenWithClass.concat(findAllChildrenWithClass(child, className));
+        }
+    });
+
+    return childrenWithClass;
+}
+
+function saveEdits(postIdToEdit) {
+    let postToEdit = document.getElementById('postCard' + postIdToEdit);
+    let postContent = postToEdit.querySelector('.postContent');
+    let footer = postToEdit.querySelector('.postFooter');
+
+    footer.innerHTML += '<button onclick="editPost(' + postIdToEdit + ')">edit Post</button>';
 
     console.log(postContent.getElementsByClassName('editable'));
     let editableElements = postContent.getElementsByClassName('editable');
     for (let i = 0; i < editableElements.length; i++) {
-        editableElements[i].setAttribute('contenteditable', 'true');
+        editableElements[i].setAttribute('contenteditable', 'false');
+    }
+
+    let recipe = {
+        "title": postContent.querySelector(".postTitle").innerHTML.trim(),
+        "ingredients": postContent.querySelector(".postIngredients").innerHTML.split("|"),
+        "tags": postContent.querySelector(".postTags").innerHTML.split("#"),
+        "description": postContent.querySelector(".postDescription").innerHTML,
+        "preparation": postContent.querySelector(".postPreparation").innerHTML,
+
     }
 }
 
