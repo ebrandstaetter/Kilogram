@@ -31,7 +31,7 @@ function generatePostsHtml(recipes) {
         };*/
 
         let recipeHTML = `<div class="postCard" onclick="detailView(this, ${recipe.id})">
-            <div class="postImage" id="postImage${recipe.id}" style="background-image: url(./img/data/${recipe.imgLink}.jpg);"></div>
+            <div class="postImage" id="postImage${recipe.id}" style="background-image: url(./img/data/${recipe.imgLink});"></div>
 
             <div class="postContent">
                 <h1 class="postTitle">${recipe.title}</h1>
