@@ -35,49 +35,6 @@
       ],
       "description": "Easy to make, delicious noodles.",
       "preparation": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae facilis illo placeat voluptatum illum? Maiores assumenda quia reprehenderit iusto enim ratione animi, laudantium, cum officiis laboriosam debitis illo, nemo ipsum!"
-    },
-    {
-      "title": "Sushi",
-      "imgLink": "C:\\fakepath\\testImageSushi.jpg",
-      "date": "2024-02-14",
-      "ingredients": [
-        "fish",
-        " rice"
-      ],
-      "tags": [
-        "easy",
-        " fresh"
-      ],
-      "description": "lorem ipsum desc",
-      "preparation": "10 min oven then eat"
-    },
-    {
-      "title": "Sushi",
-      "imgLink": "C:\\fakepath\\testImageSushi.jpg",
-      "date": "2024-02-14",
-      "ingredients": [
-        "fish",
-        " rice"
-      ],
-      "tags": [
-        "easy",
-        " fresh"
-      ],
-      "description": "lorem ipsum desc",
-      "preparation": "10 min oven then eat"
-    },
-    {
-      "title": "asd",
-      "imgLink": "C:\\fakepath\\testImageSushi.jpg",
-      "date": "2024-02-14",
-      "ingredients": [
-        "1"
-      ],
-      "tags": [
-        "2"
-      ],
-      "description": "3",
-      "preparation": "4"
     }
   ]
 }
