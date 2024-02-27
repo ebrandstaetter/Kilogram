@@ -28,8 +28,8 @@ function generatePostsHtml(recipes) {
             image.style.backgroundImage = url();//event.target.files[0]; //image.src = URL.createObjectURL(event.target.files[0]);
         };*/
 
-        let recipeHTML = `<div id="postCard${recipe.id}" class="postCard" onclick="detailView(this, ${recipe.id})">
-            <div class="postImage" id="postImage${recipe.id}" style="background-image: url(./img/data/${recipe.imgLink}.jpg);"></div>
+        let recipeHTML = `<div id="postCard${recipe.id}" class="postCard">
+            <div class="postImage" id="postImage${recipe.id}"  onclick="detailView(${recipe.id})" style="background-image: url(./img/data/${recipe.imgLink}.jpg);"></div>
 
             <div class="postContent">
                 <h1 class="postTitle editable">${recipe.title}</h1>
@@ -86,15 +86,16 @@ function generateTagsHtml(recipe) {
     return tagsHTML;
 }
 
-function detailView(postCard, recipeId) {
+function detailView(recipeId) {
 //<p className="postPreparation">${recipe.preparation}</p>
+    let postCard = document.getElementById('postCard' + recipeId);
     postCard.classList.add("detailView");
 
     fetch('http://localhost:3000/getPost/' + recipeId)
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            postCard.setAttribute('onclick', 'closeDetailView(this, ' + recipeId + ')');
+            postCard.querySelector('#postImage' + recipeId).setAttribute('onclick', `closeDetailView(${recipeId})`);
             let preparation = postCard.querySelector(".postPreparation");
             preparation.style.margin = "8%";
             preparation.innerHTML += "<h2>How to Cook:</h2>";
@@ -114,10 +115,10 @@ function detailView(postCard, recipeId) {
 
 }
 
-function closeDetailView(postCard, recipeId) {
-    console.log('closeDetailView');
+function closeDetailView(recipeId) {
+    let postCard = document.getElementById('postCard' + recipeId);
     postCard.classList.remove("detailView")
-    postCard.setAttribute('onclick', 'detailView(this, ' + recipeId + ')');
+    postCard.querySelector('#postImage' + recipeId).setAttribute('onclick', 'detailView(' + recipeId + ')');
     postCard.querySelector(".postPreparation").innerHTML = "";
 
     fetch('http://localhost:3000/getPost/' + recipeId)
@@ -186,6 +187,7 @@ function editPost(postIdToEdit) {
         editableElements[i].setAttribute('contenteditable', 'true');
     }
 }
+
 function findAllChildrenWithClass(element, className) {
     let childrenWithClass = [];
 
@@ -228,44 +230,3 @@ function saveEdits(postIdToEdit) {
 
     }
 }
-
-
-// HTML FORMAT OF recipe
-//                     <div class="postImage"></div>
-//                     <div class="postContent">
-//                         <h1 class="postTitle">Tasty Tomato Pasta</h1>
-//                         <div class="postRating">
-//                             <img src="img/CheffsHatGood.png">
-//                             <img src="img/CheffsHatGood.png">
-//                             <img src="img/CheffsHatGood.png">
-//                             <img src="img/CheffsHatGood.png">
-//                             <img src="img/CheffsHatGood.png">
-//                         </div>
-//                         <p class="postDescription">Easy to make, delicious noodles.</p>
-//                         <h2>Ingredients:</h2>
-//                         <p class="postIngredients">Noodles | Tomatosauce | Water</p>
-//                         <p class="postPreparation">Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, iusto blanditiis? Nisi ab sapiente, minus aperiam est amet! Vitae architecto enim modi accusantium quaerat exercitationem provident rerum dolor ratione tempora.</p>
-//                         <div class="postFooter">
-//                             <p class="postTags">#Easy, #Noodles, #Yummy</p>
-//                             <p class="postDate">Posted on: 2024-01-04</p>
-//                             <img class="postUserIcon" src="../Kilogram/Assets/Images/default_profile_icon.png">
-//                             <p class="postUserName">SuperUser146</p>
-//                         </div>
-//                     </div>
-
-
-// JSON FORMAT OF recipe
-// {
-//     "posts" : [
-//         {
-//             "id": "1",
-//             "title": "Tasty Tomato Pasta",
-//             "imgLink": "#",
-//             "date": "2024-01-04",
-//             "ingredients": ["Noodles", "Tomatosauce", "Water"],
-//             "tags": ["Easy", "Noodles", "Yummy"],
-//             "description": "Easy to make, delicious noodles.",
-//             "preparation": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae facilis illo placeat voluptatum illum? Maiores assumenda quia reprehenderit iusto enim ratione animi, laudantium, cum officiis laboriosam debitis illo, nemo ipsum!"
-//         }
-//     ]
-// }
