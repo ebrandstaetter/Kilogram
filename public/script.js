@@ -146,11 +146,15 @@ function addPost() {
         "preparation": document.querySelector("#preparation").value,
     }
     console.log(recipe);
+    savePost(recipe);
+}
 
+function savePost(postData) {
+    console.log(postData);
     fetch('http://localhost:3000/addPost', {
         method: 'POST', headers: {
             'Content-Type': 'application/json'
-        }, body: JSON.stringify(recipe)
+        }, body: JSON.stringify(postData)
     })
         .then(response => response.json())
         .then(data => {
@@ -178,7 +182,7 @@ function editPost(postIdToEdit) {
     let postContent = postToEdit.querySelector('.postContent');
     let footer = postToEdit.querySelector('.postFooter');
 
-    footer.innerHTML += '<button onclick="saveEdits(' + postToEdit + ')">save Post</button>';
+    footer.innerHTML += '<button onclick="saveEdits(' + postIdToEdit + ')">save Post</button>';
 
     let editableElements = findAllChildrenWithClass(postContent, 'editable');
     console.log(editableElements);
@@ -223,10 +227,12 @@ function saveEdits(postIdToEdit) {
 
     let recipe = {
         "title": postContent.querySelector(".postTitle").innerHTML.trim(),
-        "ingredients": postContent.querySelector(".postIngredients").innerHTML.split("|"),
-        "tags": postContent.querySelector(".postTags").innerHTML.split("#"),
+        "ingredients": postContent.querySelector(".postIngredients").innerHTML.split("|").trim(),
+        "tags": postContent.querySelector(".postTags").innerHTML.split("#").trim(),
         "description": postContent.querySelector(".postDescription").innerHTML,
         "preparation": postContent.querySelector(".postPreparation").innerHTML,
-
+        "date": postContent.querySelector(".postDate").innerHTML,
     }
+
+    savePost(recipe);
 }

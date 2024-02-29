@@ -6,8 +6,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const DATAPATH = __dirname + '/../data/posts.json';
 const fs_1 = __importDefault(require("fs"));
 const express_1 = __importDefault(require("express"));
+const multer = require('multer');
 const app = (0, express_1.default)();
 const port = 3000;
+const upload = multer({ dest: 'uploads/' });
 app.use(express_1.default.static(__dirname + '/../public'));
 app.use(express_1.default.json());
 app.listen(port, () => {
@@ -16,7 +18,7 @@ app.listen(port, () => {
     console.log(`Available at http://localhost:${port}`);
     console.log(`*************************************`);
 });
-app.post("/addPost", (req, res) => {
+app.post("/addPost", upload.single('img'), (req, res) => {
     let newPost = req.body;
     console.log(newPost);
     fs_1.default.readFile(DATAPATH, 'utf-8', (err, data) => {

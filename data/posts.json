@@ -35,6 +35,21 @@
       ],
       "description": "Easy to make, delicious noodles.",
       "preparation": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae facilis illo placeat voluptatum illum? Maiores assumenda quia reprehenderit iusto enim ratione animi, laudantium, cum officiis laboriosam debitis illo, nemo ipsum!"
+    },
+    {
+      "title": "Tomato Pasta",
+      "ingredients": [
+        "<p>- Noodles</p><p>- Tomatosauce</p><p>- Water</p>"
+      ],
+      "tags": [
+        "",
+        "Easy ",
+        "Noodles ",
+        "Yummy "
+      ],
+      "description": "Easy to make, delicious noodles.",
+      "preparation": "<h2>How to Cook:</h2><div class=\"editable\" contenteditable=\"false\">samina</div>",
+      "date": "2024-01-04"
     }
   ]
 }
