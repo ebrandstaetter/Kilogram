@@ -2,8 +2,10 @@ const DATAPATH = __dirname + '/../data/posts.json';
 
 import fs from 'fs';
 import express from 'express';
+const multer = require('multer');
 const app = express();
 const port = 3000;
+const upload = multer({ dest: 'uploads/' })
 
 app.use(express.static(__dirname + '/../public'));
 
@@ -16,8 +18,9 @@ app.listen(port, ()=>{
     console.log(`*************************************`)
 })
 
-app.post("/addPost", (req,res)=>{
+app.post("/addPost", upload.single('img'), (req,res)=>{
     let newPost = req.body;
+    //FILE MIT req.file ABRUFEN ? MEHR LESEN
     console.log(newPost);
 
     fs.readFile(DATAPATH, 'utf-8', (err,data )=>{
