@@ -54,7 +54,6 @@ function generatePostsHtml(recipes) {
             </div>
             </div>
         `;
-        console.log(recipeHTML);
         recipesHTML += recipeHTML;
     }
 
@@ -225,10 +224,17 @@ function saveEdits(postIdToEdit) {
         editableElements[i].setAttribute('contenteditable', 'false');
     }
 
+    let tags = postContent.querySelector(".postTags").innerHTML.split("#");
+    tags.shift();
+    tags.forEach(tag => tag.trim());
+
+    let ingredients = postContent.querySelector(".postIngredients").innerHTML.split("<p>- ").filter(Boolean).map(ingredient => ingredient.slice(0, -4));
+    ingredients.forEach(ingredient => ingredient.trim());
+
     let recipe = {
         "title": postContent.querySelector(".postTitle").innerHTML.trim(),
-        "ingredients": postContent.querySelector(".postIngredients").innerHTML.split("|").trim(),
-        "tags": postContent.querySelector(".postTags").innerHTML.split("#").trim(),
+        "ingredients": ingredients,
+        "tags": tags,
         "description": postContent.querySelector(".postDescription").innerHTML,
         "preparation": postContent.querySelector(".postPreparation").innerHTML,
         "date": postContent.querySelector(".postDate").innerHTML,
