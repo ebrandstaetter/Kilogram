@@ -62,6 +62,30 @@ app.post("/addPost", upload.single('img'), function (req: Request, res: Response
 
 
 
+app.post("/updatePost", (req,res)=>{
+    let newPost = req.body;
+    //FILE MIT req.file ABRUFEN ? MEHR LESEN
+    console.log(newPost);
+
+    fs.readFile(DATAPATH, 'utf-8', (err,data )=>{
+        if (err) throw err;
+        let json = JSON.parse(data);
+
+        for (let i = 0; i < json.posts.length; i++) {
+            if (json.posts[i].id == newPost.id) {
+                newPost.id = json.posts[i].id;
+                json.posts[i] = newPost;
+            }
+        }
+
+        fs.writeFile(DATAPATH, JSON.stringify(json,null,2), 'utf-8', (err)=>{
+            if (err) throw err;
+            console.log('new Post added');
+            res.send({'success':true})
+        })
+    })
+})
+
 app.get("/getAllPosts",(req,res) =>{
     fs.readFile(DATAPATH, 'utf-8', (err,data)=>{
         if(err) throw err;

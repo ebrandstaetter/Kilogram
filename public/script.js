@@ -101,7 +101,7 @@ function detailView(recipeId) {
             let preparation = postCard.querySelector(".postPreparation");
             preparation.style.margin = "8%";
             preparation.innerHTML += "<h2>How to Cook:</h2>";
-            preparation.innerHTML += '<div class="editable">' + data.preparation + '</div>';
+            preparation.innerHTML += '<div class="editable preperationContent">' + data.preparation + '</div>';
 
             let ingredients = postCard.querySelector(".postIngredients");
             ingredients.innerHTML = "";
@@ -240,13 +240,30 @@ function saveEdits(postIdToEdit) {
     ingredients.forEach(ingredient => ingredient.trim());
 
     let recipe = {
+        "id": postIdToEdit,
         "title": postContent.querySelector(".postTitle").innerHTML.trim(),
         "ingredients": ingredients,
         "tags": tags,
         "description": postContent.querySelector(".postDescription").innerHTML,
-        "preparation": postContent.querySelector(".postPreparation").innerHTML,
+        "preparation": postContent.querySelector(".preperationContent").innerHTML,
         "date": postContent.querySelector(".postDate").innerHTML,
     }
 
-    savePost(recipe);
+    updatePost(recipe);
+}
+
+function updatePost(postData) {
+    fetch('http://localhost:3000/updatePost', {
+        method: 'POST', headers: {
+            'Content-Type': 'application/json'
+        }, body: JSON.stringify(postData)
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            generateAllrecipes();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 }
