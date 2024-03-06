@@ -29,8 +29,8 @@ function generatePostsHtml(recipes) {
         };*/
 
         let recipeHTML = `<div id="postCard${recipe.id}" class="postCard">
-            <div class="postImage" id="postImage${recipe.id}"  onclick="detailView(${recipe.id})" style="background-image: url(./img/data/${recipe.imgLink}.jpg);"></div>
-
+            <div class="postImage" id="postImage${recipe.id}"  onclick="detailView(${recipe.id})" style="background-image: url('./img/data/${recipe.imgLink}');"></div>
+    
             <div class="postContent">
                 <h1 class="postTitle editable">${recipe.title}</h1>
                 <div class="interaction-heading">
@@ -137,7 +137,7 @@ function closeDetailView(recipeId) {
 function addPost() {
     let recipe = {
         "title": document.querySelector("#title").value,
-        "imgLink": document.querySelector("#imgLink").value,
+        "imgLink": document.querySelector("#imgLink").files[0].name,
         "date": new Date().toISOString().slice(0, 10),
         "ingredients": document.querySelector("#ingredients").value.split(","),
         "tags": document.querySelector("#tags").value.split(","),
