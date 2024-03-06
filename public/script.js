@@ -29,7 +29,7 @@ function generatePostsHtml(recipes) {
         };*/
 
         let recipeHTML = `<div id="postCard${recipe.id}" class="postCard">
-            <div class="postImage" id="postImage${recipe.id}"  onclick="detailView(${recipe.id})" style="background-image: url('./img/data/${recipe.imgLink}');"></div>
+            <div class="postImage" id="postImage${recipe.id}"  onclick="detailView(${recipe.id})" style="background-image: url('../uploads/${recipe.imgLink}');"></div>
     
             <div class="postContent">
                 <h1 class="postTitle editable">${recipe.title}</h1>

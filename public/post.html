@@ -29,7 +29,7 @@
         <form action="/addPost" method="POST" enctype="multipart/form-data">
             <div>
                 <label for="title">Title:</label>
-                <input id="title" type="text">
+                <input id="title" name="title" type="text">
             </div>
             <div>
                 <label for="imgLink">Image Link:</label>
@@ -37,22 +37,23 @@
             </div>
             <div>
                 <label for="ingredients">Ingredients:</label>
-                <input id="ingredients" type="text">
+                <input id="ingredients" name="ingredients" type="text">
             </div>
             <div>
                 <label for="tags">Tags:</label>
-                <input id="tags" type="text">
+                <input id="tags" name="tags" type="text">
             </div>
             <div>
                 <label for="description">Description:</label>
-                <input id="description" type="text">
+                <input id="description" name="description" type="text">
             </div>
             <div>
                 <label for="preparation">Preparation:</label>
-                <input id="preparation" type="text">
+                <input id="preparation" name="preperation" type="text">
             </div>
+            <input type="submit" name="submit" value="submit">
         </form>
-        <input type="submit" name="submit" value="submit">
+
     </div>
 </main>
 </body>
