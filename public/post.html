@@ -25,31 +25,34 @@
 <main class="content">
 
     <div class="addPostInputs">
-        <div>
-            <label for="title">Title:</label>
-            <input id="title" type="text">
-        </div>
-        <div>
-            <label for="imgLink">Image Link:</label>
-            <input id="imgLink" type="file" accept="image/jpeg">
-        </div>
-        <div>
-            <label for="ingredients">Ingredients:</label>
-            <input id="ingredients" type="text">
-        </div>
-        <div>
-            <label for="tags">Tags:</label>
-            <input id="tags" type="text">
-        </div>
-        <div>
-            <label for="description">Description:</label>
-            <input id="description" type="text">
-        </div>
-        <div>
-            <label for="preparation">Preparation:</label>
-            <input id="preparation" type="text">
-        </div>
-        <button onclick="addPost()">submit</button>
+
+        <form action="/addPost" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="title">Title:</label>
+                <input id="title" type="text">
+            </div>
+            <div>
+                <label for="imgLink">Image Link:</label>
+                <input id="imgLink" name="img" type="file" accept="image/jpeg">
+            </div>
+            <div>
+                <label for="ingredients">Ingredients:</label>
+                <input id="ingredients" type="text">
+            </div>
+            <div>
+                <label for="tags">Tags:</label>
+                <input id="tags" type="text">
+            </div>
+            <div>
+                <label for="description">Description:</label>
+                <input id="description" type="text">
+            </div>
+            <div>
+                <label for="preparation">Preparation:</label>
+                <input id="preparation" type="text">
+            </div>
+        </form>
+        <input type="submit" name="submit" value="submit">
     </div>
 </main>
 </body>

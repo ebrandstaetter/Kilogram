@@ -298,7 +298,7 @@ h1, h2, h3 {
     box-shadow       : 0 0 15px 0 var(--shadow); /* adds a subtle shadow to the input fields */
 }
 
-.addPostInputs button {
+.addPostInputs input[type=submit] {
     padding          : 10px 20px;
     border           : none;
     border-radius    : 5px;
@@ -310,7 +310,7 @@ h1, h2, h3 {
     transition       : background-color 0.3s ease, transform 0.3s ease; /* adds a transition effect to the button */
 }
 
-.addPostInputs button:hover {
+.addPostInputs input[type=submit]:hover {
     background-color : var(--secondary);
     transform        : scale(1.05); /* slightly enlarges the button when hovered */
 }
