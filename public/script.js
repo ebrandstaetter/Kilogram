@@ -32,7 +32,10 @@ function generatePostsHtml(recipes) {
             <div class="postImage" id="postImage${recipe.id}"  onclick="detailView(${recipe.id})" style="background-image: url('./img/data/${recipe.imgLink}');"></div>
     
             <div class="postContent">
-                <h1 class="postTitle editable">${recipe.title}</h1>
+                <div class="postHeading">
+                    <h1 class="postTitle editable">${recipe.title}</h1>
+                    <div class="editPostDiv"></div>
+                </div>
                 <div class="interaction-heading">
                 <div class="postRating">
                     <img src="img/CheffsHatGood.png">
@@ -50,7 +53,6 @@ function generatePostsHtml(recipes) {
                 <div class="postFooter">
                     <p class="postDate editable">${recipe.date}</p>
                     <p class="postTags editable">${tagsHTML}</p>
-                    <div class="editPostDiv"></div>
                 </div>
             </div>
             </div>
@@ -123,6 +125,7 @@ function closeDetailView(recipeId) {
     postCard.classList.remove("detailView")
     postCard.querySelector('#postImage' + recipeId).setAttribute('onclick', 'detailView(' + recipeId + ')');
     postCard.querySelector(".postPreparation").innerHTML = "";
+    postCard.querySelector('.editPostDiv').innerHTML = "";
 
     fetch('http://localhost:3000/getPost/' + recipeId)
         .then(response => response.json())

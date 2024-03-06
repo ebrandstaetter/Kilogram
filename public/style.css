@@ -318,3 +318,12 @@ h1, h2, h3 {
 .editPostButton {
 
 }
+
+.postHeading {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 91%;
+    align-items: center;
+    justify-content: space-evenly;
+}
