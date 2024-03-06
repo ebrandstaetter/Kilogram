@@ -48,8 +48,9 @@ function generatePostsHtml(recipes) {
                 <p class="postIngredients editable">${ingredientsHTML}</p>
                 <div class="postPreparation"></div>
                 <div class="postFooter">
-                   <p class="postDate editable">${recipe.date}</p>
+                    <p class="postDate editable">${recipe.date}</p>
                     <p class="postTags editable">${tagsHTML}</p>
+                    <div class="editPostDiv"></div>
                 </div>
             </div>
             </div>
@@ -108,12 +109,15 @@ function detailView(recipeId) {
             ingredients.classList.add("postPreparationDetailView");
 
             //TODO: use icon instead of button, styling
-            document.querySelector('.postFooter').innerHTML += '<button onclick="editPost(' + data.id + ')">edit Post</button>';
+            document.querySelector('.editPostDiv').innerHTML += `<div class="editPostButton" onclick=" hideCurrentElement(this); editPost(${data.id});"><img src="img/icons/lock-closed.svg"></div>`;
         })
         .catch(err => console.log(err));
 
 }
-
+function hideCurrentElement(element) {
+    console.log(element.style.display)
+    element.style.display = 'none';
+}
 function closeDetailView(recipeId) {
     let postCard = document.getElementById('postCard' + recipeId);
     postCard.classList.remove("detailView")
@@ -179,9 +183,9 @@ function changePostSavestate(bookmark) {
 function editPost(postIdToEdit) {
     let postToEdit = document.getElementById('postCard' + postIdToEdit);
     let postContent = postToEdit.querySelector('.postContent');
-    let footer = postToEdit.querySelector('.postFooter');
+    let footer = postToEdit.querySelector('.editPostDiv');
 
-    footer.innerHTML += '<button onclick="saveEdits(' + postIdToEdit + ')">save Post</button>';
+    footer.innerHTML += '<div class="editPostButton" onClick="hideCurrentElement(this); saveEdits(' + postIdToEdit + ');"><img src="img/icons/lock-open.svg"></div>';
 
     let editableElements = findAllChildrenWithClass(postContent, 'editable');
     console.log(editableElements);
@@ -214,9 +218,10 @@ function findAllChildrenWithClass(element, className) {
 function saveEdits(postIdToEdit) {
     let postToEdit = document.getElementById('postCard' + postIdToEdit);
     let postContent = postToEdit.querySelector('.postContent');
-    let footer = postToEdit.querySelector('.postFooter');
+    let footer = postToEdit.querySelector('.editPostDiv');
 
-    footer.innerHTML += '<button onclick="editPost(' + postIdToEdit + ')">edit Post</button>';
+    footer.innerHTML += '<div class="editPostButton" onClick="editPost(' + postIdToEdit + ')"><img src="img/icons/lock-closed.svg.svg"></div>';
+    //<div onClick="editPost(' + postIdToEdit + ')">edit Post</div>
 
     console.log(postContent.getElementsByClassName('editable'));
     let editableElements = postContent.getElementsByClassName('editable');

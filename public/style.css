@@ -151,6 +151,7 @@ h1, h2, h3 {
 
 .detailView .postContent {
     overflow: scroll;
+    overflow-x: hidden;
     scrollbar-width: none;
 }
 
@@ -312,4 +313,8 @@ h1, h2, h3 {
 .addPostInputs button:hover {
     background-color : var(--secondary);
     transform        : scale(1.05); /* slightly enlarges the button when hovered */
+}
+
+.editPostButton {
+
 }
