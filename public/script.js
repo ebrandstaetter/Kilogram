@@ -44,7 +44,7 @@ function generatePostsHtml(recipes) {
                     <img src="img/CheffsHatGood.png">
                     <img src="img/CheffsHatGood.png">
                 </div>
-                    <img class="postBookmark" id="false" src="img/icons/bookmark.svg" onclick="changePostSavestate(this)" onmouseenter="changePostSavestate(this)" onmouseleave="changePostSavestate(this)">
+                    <img class="postBookmark" id="false" src="img/icons/bookmark.svg" onclick="changePostSavestate(this)"">
                 </div>
                 <p class="postDescription editable">${recipe.description}</p>
                 <h2>Ingredients:</h2>
@@ -175,7 +175,7 @@ function savePost(postData) {
 
 function changePostSavestate(bookmark) {
     if (bookmark.id === 'false') {
-        bookmark.src = "img/i" + "cons/bookmark-saved.svg"
+        bookmark.src = "img/icons/bookmark-saved.svg"
         bookmark.id = 'true'
     } else if (bookmark.id === 'true') {
         bookmark.src = "img/icons/bookmark.svg"
@@ -223,7 +223,7 @@ function saveEdits(postIdToEdit) {
     let postContent = postToEdit.querySelector('.postContent');
     let footer = postToEdit.querySelector('.editPostDiv');
 
-    footer.innerHTML += '<div class="editPostButton" onClick="editPost(' + postIdToEdit + ')"><img src="img/icons/lock-closed.svg.svg"></div>';
+    footer.innerHTML += '<div class="editPostButton" onClick="editPost(' + postIdToEdit + ')"><img src="img/icons/lock-closed.svg"></div>';
     //<div onClick="editPost(' + postIdToEdit + ')">edit Post</div>
 
     console.log(postContent.getElementsByClassName('editable'));
@@ -246,6 +246,7 @@ function saveEdits(postIdToEdit) {
         "tags": tags,
         "description": postContent.querySelector(".postDescription").innerHTML,
         "preparation": postContent.querySelector(".preperationContent").innerHTML,
+        "imgLink" : postContent.querySelector(".postImage").style.backgroundImage,
         "date": postContent.querySelector(".postDate").innerHTML,
     }
 
