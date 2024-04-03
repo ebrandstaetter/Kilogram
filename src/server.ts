@@ -7,10 +7,10 @@ import fs from 'fs';
 const app = express();
 const port = 3000;
 
-// Configure multer to use disk storage
+// If File upload dosen't work it's probably this Code. it sucks.
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, '../public/uploads/')
+    cb(null, './public/uploads/')
   },
   filename: function (req, file, cb) {
     const ext = file.originalname.split('.').pop(); 

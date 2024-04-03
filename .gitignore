@@ -3,7 +3,6 @@ node_modules
 .DS_Store
 ./dist
 .idea
-*.Identifier
 package-lock.json
 package.json
 tscconfig.json
