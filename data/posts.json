@@ -2,19 +2,38 @@
   "posts": [
     {
       "id": "1",
-      "title": "Tomatasta",
+      "title": "Tomatastara",
       "ingredients": [
         "Noodles",
         "Tomatosauce",
-        "Water"
+        "Water",
+        "Salt"
       ],
       "tags": [
-        "Easy    ",
-        "Noodles    ",
-        "Yummy    "
+        "Easy   ",
+        "Noodles   ",
+        "Yummy   "
       ],
       "description": "Easy to make, delicious noodles.",
-      "preparation": "samina",
+      "preparation": "samina rr",
+      "date": "2024-01-04"
+    },
+    {
+      "id": "2",
+      "title": "Tomatastara",
+      "ingredients": [
+        "Noodles",
+        "Tomatosauce",
+        "Water",
+        "Salt"
+      ],
+      "tags": [
+        "Easy   ",
+        "Noodles   ",
+        "Yummy   "
+      ],
+      "description": "Easy to make, delicious noodles.",
+      "preparation": "samina rr",
       "date": "2024-01-04"
     }
   ]

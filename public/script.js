@@ -111,7 +111,7 @@ function detailView(recipeId) {
             ingredients.classList.add("postPreparationDetailView");
 
             //TODO: use icon instead of button, styling
-            document.querySelector('.editPostDiv').innerHTML += `<div class="editPostButton" onclick=" hideCurrentElement(this); editPost(${data.id});"><img src="img/icons/lock-closed.svg"></div>`;
+            postCard.querySelector('.editPostDiv').innerHTML += `<div class="editPostButton" onclick=" hideCurrentElement(this); editPost(${data.id});"><img src="img/icons/lock-closed.svg"></div>`;
         })
         .catch(err => console.log(err));
 
