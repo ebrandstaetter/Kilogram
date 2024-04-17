@@ -74,6 +74,7 @@ app.post("/updatePost", (req,res)=>{
         for (let i = 0; i < json.posts.length; i++) {
             if (json.posts[i].id == newPost.id) {
                 newPost.id = json.posts[i].id;
+                newPost.imgLink = json.posts[i].imgLink;
                 json.posts[i] = newPost;
             }
         }

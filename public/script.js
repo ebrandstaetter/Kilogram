@@ -19,8 +19,8 @@ function generatePostsHtml(recipes) {
         let tagsHTML = generateTagsHtml(recipe);
 
         let ingredientsHTML = generateIngredientsHtmlSmallView(recipe.ingredients);
-         //TODO: Add rating mechanic
-          //TODO: Add image upload instead of URL input
+        //TODO: Add rating mechanic
+        //TODO: Add image upload instead of URL input
 
         //TODO: image upload function
         /*var loadFile = function(event) {
@@ -29,7 +29,7 @@ function generatePostsHtml(recipes) {
         };*/
 
         let recipeHTML = `<div id="postCard${recipe.id}" class="postCard">
-            <div class="postImage" id="postImage${recipe.id}"  onclick="detailView(${recipe.id})" style="background-image: url('../uploads/${recipe.imgLink}');"></div>
+            <div class="postImage" id="postImage${recipe.id}"  onclick="detailView(${recipe.id})" style="background-image: url('uploads/${recipe.imgLink}');"></div>
     
             <div class="postContent">
                 <div class="postHeading">
@@ -67,7 +67,7 @@ function generateIngredientsHtmlSmallView(ingredients) {
     let ingredientsHTML = "";
     const MAX_INGREDIENTS_LENGTH = 5;
     for (let j = 0; j < ingredients.length; j++) {
-        if(j < MAX_INGREDIENTS_LENGTH) {
+        if (j < MAX_INGREDIENTS_LENGTH) {
             ingredientsHTML += `${ingredients[j]}`;
         } else {
             ingredientsHTML += `...`;
@@ -116,10 +116,12 @@ function detailView(recipeId) {
         .catch(err => console.log(err));
 
 }
+
 function hideCurrentElement(element) {
     console.log(element.style.display)
     element.style.display = 'none';
 }
+
 function closeDetailView(recipeId) {
     let postCard = document.getElementById('postCard' + recipeId);
     postCard.classList.remove("detailView")
@@ -246,7 +248,6 @@ function saveEdits(postIdToEdit) {
         "tags": tags,
         "description": postContent.querySelector(".postDescription").innerHTML,
         "preparation": postContent.querySelector(".preperationContent").innerHTML,
-        "imgLink" : postContent.querySelector(".postImage").style.backgroundImage,
         "date": postContent.querySelector(".postDate").innerHTML,
     }
 

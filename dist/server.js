@@ -11,7 +11,7 @@ const app = (0, express_1.default)();
 const port = 3000;
 const storage = multer_1.default.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'public/uploads/');
+        cb(null, './public/uploads/');
     },
     filename: function (req, file, cb) {
         const ext = file.originalname.split('.').pop();
@@ -63,6 +63,7 @@ app.post("/updatePost", (req, res) => {
         for (let i = 0; i < json.posts.length; i++) {
             if (json.posts[i].id == newPost.id) {
                 newPost.id = json.posts[i].id;
+                newPost.imgLink = json.posts[i].imgLink;
                 json.posts[i] = newPost;
             }
         }
