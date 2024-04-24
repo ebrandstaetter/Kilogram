@@ -290,12 +290,12 @@ function populateTable() {
             posts.posts.forEach(post => {
                 const tr = document.createElement('tr');
 
-                const tdUserImage = document.createElement('td');
-                tdUserImage.className = 'tdUserImage';
-                const imgUser = document.createElement('img');
-                imgUser.src = '/uploads/' + post.imgLink; // Use the image link from the post data
-                imgUser.alt = 'User Image';
-                tdUserImage.appendChild(imgUser);
+                // const tdUserImage = document.createElement('td');
+                // tdUserImage.className = 'tdUserImage';
+                // const imgUser = document.createElement('img');
+                // imgUser.src = '/uploads/' + post.imgLink; // Use the image link from the post data
+                // imgUser.alt = 'User Image';
+                // tdUserImage.appendChild(imgUser);
 
                 const tdRating = document.createElement('td');
                 tdRating.className = 'tdRating';
@@ -323,7 +323,8 @@ function populateTable() {
                 imgBookmark.src = './img/icons/bookmark.svg';
                 tdBookmark.appendChild(imgBookmark);
 
-                tr.append(tdUserImage, tdRating, tdTitle, tdDescription, tdIngredients, tdTags, tdBookmark);
+                // tr.append(tdUserImage, tdRating, tdTitle, tdDescription, tdIngredients, tdTags, tdBookmark);
+                tr.append(tdTitle, tdRating, tdDescription, tdIngredients, tdTags, tdBookmark);
                 tableBody.appendChild(tr);
             });
         })

@@ -348,13 +348,15 @@ h1, h2, h3 {
 .postsTable {
     width: 90%;
     border-collapse: collapse;
+    /*border-spacing: 20px;*/
 }
 
 .postsTable tr {
     height: 75px;
     width: 90%;
     background-color: var(--primary);
-    border-radius: 1em;
+    /*border: 2px solid var(--primary);*/
+    /*border-radius: 30px;*/
 }
 
 .postsTable td {
