@@ -7,6 +7,7 @@ function generateAllrecipes() {
         .then(recipes => {
             console.log(recipes);
             document.querySelector(".feed").innerHTML = generatePostsHtml(recipes);
+            return recipes;
         })
         .catch(err => console.log(err));
 }
@@ -269,3 +270,67 @@ function updatePost(postData) {
             console.error('Error:', error);
         });
 }
+
+window.onload = function() {
+    // Check if the current page is search.html
+    console.log("Hurensohn" + window.location.pathname);
+    if (window.location.pathname.endsWith('search.html')) {
+        populateTable();
+    }
+};
+
+function populateTable() {
+    console.log("Populating table")
+    fetch('http://localhost:3000/getAllPosts') // Fetch posts from local posts.json file
+        .then(response => response.json())
+        .then(posts => {
+            const tableBody = document.querySelector('.postsTable tbody');
+            tableBody.innerHTML = ''; // Clear the table body
+
+            posts.posts.forEach(post => {
+                const tr = document.createElement('tr');
+
+                const tdUserImage = document.createElement('td');
+                tdUserImage.className = 'tdUserImage';
+                const imgUser = document.createElement('img');
+                imgUser.src = '/uploads/' + post.imgLink; // Use the image link from the post data
+                imgUser.alt = 'User Image';
+                tdUserImage.appendChild(imgUser);
+
+                const tdRating = document.createElement('td');
+                tdRating.className = 'tdRating';
+                tdRating.innerHTML = `<p>4/5</p><img src="./img/CheffsHatGood.png" alt="Chef Hat">`; // Replace 4/5 with the actual rating
+
+                const tdTitle = document.createElement('td');
+                tdTitle.className = 'tdTitle';
+                tdTitle.textContent = post.title;
+
+                const tdDescription = document.createElement('td');
+                tdDescription.className = 'tdDescription';
+                tdDescription.textContent = post.description;
+
+                const tdIngredients = document.createElement('td');
+                tdIngredients.className = 'tdIngredients';
+                tdIngredients.innerHTML = `<h5>Ingredients:</h5><p>${generateIngredientsHtmlSmallView(post.ingredients)}</p>`;
+
+                const tdTags = document.createElement('td');
+                tdTags.className = 'tdTags';
+                tdTags.textContent = generateTagsHtml(post);
+
+                const tdBookmark = document.createElement('td');
+                tdBookmark.className = 'tdBookmark';
+                const imgBookmark = document.createElement('img');
+                imgBookmark.src = './img/icons/bookmark.svg';
+                tdBookmark.appendChild(imgBookmark);
+
+                tr.append(tdUserImage, tdRating, tdTitle, tdDescription, tdIngredients, tdTags, tdBookmark);
+                tableBody.appendChild(tr);
+            });
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
+
+// Call the function when the page loads
+window.onload = populateTable;
