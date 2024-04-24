@@ -330,3 +330,70 @@ h1, h2, h3 {
     align-items: center;
     justify-content: space-evenly;
 }
+
+.searchContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.searchBox {
+    margin: 25px;
+}
+
+.searchBox input {
+    padding: 5px;
+}
+
+.postsTable {
+    width: 90%;
+    border-collapse: collapse;
+}
+
+.postsTable tr {
+    height: 75px;
+    width: 90%;
+    background-color: var(--primary);
+    border-radius: 1em;
+}
+
+.postsTable td {
+
+}
+
+.tdUserImage {
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+
+.tdRating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 75px;
+}
+
+.tdRating img {
+    height: 15px;
+}
+
+.tdTitle {
+    font-size: 175%;
+}
+
+.tdDescription {
+
+}
+
+.tdIngredients {
+
+}
+
+.tdTags {
+
+}
+
+.tdBookmark {
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+}

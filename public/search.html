@@ -2,9 +2,63 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link href="style.css" rel="stylesheet">
+  <script defer src="./script.js"></script>
+  <title>Search for Recipe</title>
 </head>
 <body>
-$END$
+<div class="navBar">
+  <a class="navBarLogoLink" href="index.html">
+    <img alt="Logo" class="navBarLogo" src="./img/Kilogram Logo V4.png">
+  </a>
+  <a class="navBarIconLink">
+    <img alt="Home" class="navBarIcon" src="./img/icons/home.svg">
+  </a>
+  <a class="navBarIconLink" href="search.html">
+    <img alt="Search" class="navBarIcon" src="./img/icons/search.svg">
+  </a>
+  <a class="navBarIconLink">
+    <img alt="Settings" class="navBarIcon" src="./img/icons/settings.svg">
+  </a>
+  <a class="navBarIconLink" href="post.html">
+    <img alt="Add Post" class="navBarIcon" src="./img/icons/plus.svg">
+  </a>
+</div>
+<main class="content">
+  <div class="searchContent">
+
+    <!-- <div class="searchBox">
+      <input id="searchPostByName" type="text" placeholder="Search for recipes...">
+      <input id="searchPostSubmit" type="submit" value="submit">
+    </div> -->
+
+    <table class="postsTable">
+      <tbody>
+      <tr>
+        <td class="tdUserImage">
+          <img src="#" alt="User Image">
+        </td>
+        <td class="tdRating">
+          <p>4/5</p>
+          <img src="./img/CheffsHatGood.png" alt="Chef Hat">
+        </td>
+        <td class="tdTitle">Pizza</td>
+        <td class="tdDescription">A simple deli...</td>
+        <td class="tdIngredients">
+          <h5>Ingredients:</h5>
+          <p>Mozarella | Basil | Olives</p>
+        </td>
+        <td class="tdTags">#Italy #Pizza</td>
+        <td class="tdBookmark">
+          <img src="./img/icons/bookmark.svg">
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</main>
 </body>
 </html>
