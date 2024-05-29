@@ -1,0 +1,16 @@
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:14-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=Kilogram#4020
+      - POSTGRES_USER=KiloAdmin
+      - POSTGRES_DB=Kilogram
+
+volumes:
+  postgres:
+

@@ -19,4 +19,14 @@ public class Post {
     public String preparation;
     public Date date;
     public String imgLink;
+
+    public Post(String title, List<String> ingredients, List<String> tags, String description, String preparation, Date date, String imgLink) {
+        this.title = title;
+        this.ingredients = ingredients;
+        this.tags = tags;
+        this.description = description;
+        this.preparation = preparation;
+        this.date = date;
+        this.imgLink = imgLink;
+    }
 }

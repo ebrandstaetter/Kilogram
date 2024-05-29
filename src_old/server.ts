@@ -7,7 +7,7 @@ import fs from 'fs';
 const app = express();
 const port = 3000;
 
-// If File upload dosen't work it's probably this Code if fuckign sucks
+// If File upload dosen't work it's probably this Code it fuckign sucks
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, './public/uploads/')

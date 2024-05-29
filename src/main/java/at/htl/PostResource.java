@@ -33,6 +33,7 @@ public class PostResource {
         return postRepository.findById(id);
     }
 
+    @POST
     @Transactional
     @Path("/addPost")
     public Response addPost(Post post) {
@@ -40,6 +41,7 @@ public class PostResource {
         return Response.ok().build();
     }
 
+    @POST
     @Transactional
     @Path("updatePost")
     public Response updatePost(Post newPost) {
