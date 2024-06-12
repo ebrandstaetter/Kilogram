@@ -20,15 +20,8 @@ function generatePostsHtml(recipes) {
         let tagsHTML = generateTagsHtml(recipe);
 
         let ingredientsHTML = generateIngredientsHtmlSmallView(recipe.ingredients);
-        let ratingString = "";
-        for (let j = 0; j < recipe.rating; j++) {
-            ratingString += `<img src="img/CheffsHatGood.png" onclick="changeRating(${j + 1})">`;
-        }
-        for (let k = 0; k < 5 - recipe.rating; k++) {
-            ratingString += `<img src="img/CheffsHat.png" onclick="changeRating(${k + 1 + recipe.rating})">`;
-        }
-
-        //TODO: Add image upload instead of URL input
+         //TODO: Add rating mechanic
+          //TODO: Add image upload instead of URL input
 
         //TODO: image upload function
         /*var loadFile = function(event) {
@@ -37,7 +30,7 @@ function generatePostsHtml(recipes) {
         };*/
 
         let recipeHTML = `<div id="postCard${recipe.id}" class="postCard">
-            <div class="postImage" id="postImage${recipe.id}"  onclick="detailView(${recipe.id})" style="background-image: url('uploads/${recipe.imgLink}');"></div>
+            <div class="postImage" id="postImage${recipe.id}"  onclick="detailView(${recipe.id})" style="background-image: url('../uploads/${recipe.imgLink}');"></div>
     
             <div class="postContent">
                 <div class="postHeading">
@@ -46,7 +39,11 @@ function generatePostsHtml(recipes) {
                 </div>
                 <div class="interaction-heading">
                 <div class="postRating">
-                    ${ratingString}
+                    <img src="img/CheffsHatGood.png">
+                    <img src="img/CheffsHatGood.png">
+                    <img src="img/CheffsHatGood.png">
+                    <img src="img/CheffsHatGood.png">
+                    <img src="img/CheffsHatGood.png">
                 </div>
                     <img class="postBookmark" id="false" src="img/icons/bookmark.svg" onclick="changePostSavestate(this)"">
                 </div>
@@ -71,7 +68,7 @@ function generateIngredientsHtmlSmallView(ingredients) {
     let ingredientsHTML = "";
     const MAX_INGREDIENTS_LENGTH = 5;
     for (let j = 0; j < ingredients.length; j++) {
-        if (j < MAX_INGREDIENTS_LENGTH) {
+        if(j < MAX_INGREDIENTS_LENGTH) {
             ingredientsHTML += `${ingredients[j]}`;
         } else {
             ingredientsHTML += `...`;
@@ -156,7 +153,6 @@ function addPost() {
         "tags": document.querySelector("#tags").value.split(","),
         "description": document.querySelector("#description").value,
         "preparation": document.querySelector("#preparation").value,
-        "rating": 0
     }
     console.log(recipe);
     savePost(recipe);
@@ -188,10 +184,6 @@ function changePostSavestate(bookmark) {
         bookmark.src = "img/icons/bookmark.svg"
         bookmark.id = 'false'
     }
-}
-
-function changeRating(stars) {
-    console.log(stars);
 }
 
 function editPost(postIdToEdit) {
@@ -257,6 +249,7 @@ function saveEdits(postIdToEdit) {
         "tags": tags,
         "description": postContent.querySelector(".postDescription").innerHTML,
         "preparation": postContent.querySelector(".preperationContent").innerHTML,
+        "imgLink" : postContent.querySelector(".postImage").style.backgroundImage,
         "date": postContent.querySelector(".postDate").innerHTML,
     }
 
@@ -277,6 +270,23 @@ function updatePost(postData) {
         .catch((error) => {
             console.error('Error:', error);
         });
+}
+
+function rateRecepie(item) {
+    rating = parseInt(item.classList[0])
+    document.getElementsByClassName("postRating")[0].innerHTML = printHats(rating)
+}
+
+function printHats(rating) {
+    let hats = "";
+    for (let i = 0; i < rating; i++) {
+        hats += '<img class=\"hat-1\" onClick=\"rateRecepie(this)\" src=\"img/CheffsHatGood.png\"/>'
+    }
+    for (let i = 0; i < (5-rating); i++) {
+        hats += '<img class=\"hat-1\" onClick=\"rateRecepie(this)\" src=\"img/CheffsHat.png\"/>'
+    }
+    return hats;
+
 }
 
 window.onload = function() {
@@ -307,7 +317,7 @@ function populateTable() {
 
                 const tdRating = document.createElement('td');
                 tdRating.className = 'tdRating';
-                tdRating.innerHTML = `<p>${post.rating}</p><img src="./img/CheffsHatGood.png" alt="Chef Hat">`;
+                tdRating.innerHTML = `<p>4/5</p><img src="./img/CheffsHatGood.png" alt="Chef Hat">`; // Replace 4/5 with the actual rating
 
                 const tdTitle = document.createElement('td');
                 tdTitle.className = 'tdTitle';
