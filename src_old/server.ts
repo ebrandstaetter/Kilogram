@@ -47,7 +47,8 @@ app.post("/addPost", upload.single('img'), function (req: Request, res: Response
             ingredients: req.body.ingredients.split(","),
             tags: req.body.tags.split(","),
             description: req.body.description,
-            preparation: req.body.preparation
+            preparation: req.body.preparation,
+            rating: req.body.rating
         };
 
         json.posts.push(newPost);

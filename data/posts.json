@@ -15,6 +15,24 @@
       "preparation": "Dua den Lebakas ins semmal",
       "date": "2024-04-17",
       "imgLink": "img-1713358701248.jpg"
+    },
+    {
+      "id": 2,
+      "title": "susi",
+      "date": "2024-06-12",
+      "imgLink": "img-1718191181147.jpg",
+      "ingredients": [
+        "lachs",
+        " reis",
+        " kurke",
+        " blatt"
+      ],
+      "tags": [
+        "yum",
+        " sushi"
+      ],
+      "description": "sushi mit fisch",
+      "rating":  "3"
     }
   ]
 }

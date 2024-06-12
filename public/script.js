@@ -20,7 +20,14 @@ function generatePostsHtml(recipes) {
         let tagsHTML = generateTagsHtml(recipe);
 
         let ingredientsHTML = generateIngredientsHtmlSmallView(recipe.ingredients);
-        //TODO: Add rating mechanic
+        let ratingString = "";
+        for (let j = 0; j < recipe.rating; j++) {
+            ratingString += `<img src="img/CheffsHatGood.png" onclick="changeRating(${j + 1})">`;
+        }
+        for (let k = 0; k < 5 - recipe.rating; k++) {
+            ratingString += `<img src="img/CheffsHat.png" onclick="changeRating(${k + 1 + recipe.rating})">`;
+        }
+
         //TODO: Add image upload instead of URL input
 
         //TODO: image upload function
@@ -39,11 +46,7 @@ function generatePostsHtml(recipes) {
                 </div>
                 <div class="interaction-heading">
                 <div class="postRating">
-                    <img src="img/CheffsHatGood.png">
-                    <img src="img/CheffsHatGood.png">
-                    <img src="img/CheffsHatGood.png">
-                    <img src="img/CheffsHatGood.png">
-                    <img src="img/CheffsHatGood.png">
+                    ${ratingString}
                 </div>
                     <img class="postBookmark" id="false" src="img/icons/bookmark.svg" onclick="changePostSavestate(this)"">
                 </div>
@@ -153,6 +156,7 @@ function addPost() {
         "tags": document.querySelector("#tags").value.split(","),
         "description": document.querySelector("#description").value,
         "preparation": document.querySelector("#preparation").value,
+        "rating": 0
     }
     console.log(recipe);
     savePost(recipe);
@@ -184,6 +188,10 @@ function changePostSavestate(bookmark) {
         bookmark.src = "img/icons/bookmark.svg"
         bookmark.id = 'false'
     }
+}
+
+function changeRating(stars) {
+    console.log(stars);
 }
 
 function editPost(postIdToEdit) {
@@ -299,7 +307,7 @@ function populateTable() {
 
                 const tdRating = document.createElement('td');
                 tdRating.className = 'tdRating';
-                tdRating.innerHTML = `<p>4/5</p><img src="./img/CheffsHatGood.png" alt="Chef Hat">`; // Replace 4/5 with the actual rating
+                tdRating.innerHTML = `<p>${post.rating}</p><img src="./img/CheffsHatGood.png" alt="Chef Hat">`;
 
                 const tdTitle = document.createElement('td');
                 tdTitle.className = 'tdTitle';
