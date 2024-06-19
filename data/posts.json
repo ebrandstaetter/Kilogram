@@ -14,13 +14,12 @@
       "description": "hosd schomoi Lebakas gessn",
       "preparation": "Dua den Lebakas ins semmal",
       "date": "2024-04-17",
-      "imgLink": "img-1713358701248.jpg"
+      "imgLink": "img-1713358701248.jpg",
+      "rating": "5"
     },
     {
       "id": 2,
       "title": "susi",
-      "date": "2024-06-12",
-      "imgLink": "img-1718191181147.jpg",
       "ingredients": [
         "lachs",
         " reis",
@@ -28,11 +27,14 @@
         " blatt"
       ],
       "tags": [
-        "yum",
-        " sushi"
+        "yum  ",
+        " sushi  "
       ],
       "description": "sushi mit fisch",
-      "rating":  "3"
+      "preparation": "undefined",
+      "date": "2024-06-12",
+      "imgLink": "img-1718191181147.jpg",
+      "rating": "4"
     }
   ]
 }
